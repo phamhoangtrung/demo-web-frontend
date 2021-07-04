@@ -1,0 +1,13 @@
+.top-nav li{
+    margin: 0 20px 0 0;
+}
+.navbar-header{
+height: 60px;
+}
+.topbar .navbar-collapse .navbar-nav .app-search span {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #4c5667;
+    cursor: pointer;
+}

@@ -1,0 +1,8 @@
+<div *ngIf="shoes">
+  <h1>Name: {{ shoes.name }}</h1>
+  <p>Type: {{ shoes.type }}</p>
+  <p>Quantity: {{ shoes.quantity }}</p>
+  <p>Price:{{ shoes.price }}</p>
+</div>
+<button mat-button (click)="openDialog()">Update</button>
+<button mat-button (click)="openConfirmBox()">Detele</button>

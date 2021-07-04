@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>Add product</h2>
+<mat-dialog-content class="mat-typography" style="width: 500px">
+  <form (ngSubmit)="onSubmit()" [formGroup]="addForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="name"
+        autocomplete="off"
+      />
+      <mat-error *ngIf="addForm.controls['name'].hasError('required')">
+        required
+      </mat-error>
+      <mat-error *ngIf="addForm.controls['name'].hasError('minlength')">
+        Required more than 4 characters
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Type</mat-label>
+      <input
+        matInput
+        placeholder="Type"
+        formControlName="type"
+        autocomplete="off"
+      />
+      <mat-error *ngIf="addForm.controls['type'].hasError('required')">
+        required
+      </mat-error>
+      <mat-error *ngIf="addForm.controls['type'].hasError('minlength')">
+        Required more than 4 characters
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Quantity</mat-label>
+      <input
+        matInput
+        placeholder="Quantity"
+        formControlName="quantity"
+        autocomplete="off"
+      /><mat-error *ngIf="addForm.controls['quantity'].hasError('required')">
+        required
+      </mat-error>
+      <mat-error *ngIf="addForm.controls['quantity'].hasError('min')">
+        Invalid quantity
+      </mat-error>
+      <mat-error *ngIf="addForm.controls['quantity'].hasError('max')">
+        Quantity must be lower than 100
+      </mat-error>
+      <mat-error *ngIf="addForm.controls['quantity'].hasError('invalidNumber')">
+        Invalid number
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        placeholder="Price"
+        formControlName="price"
+        autocomplete="off"
+      /><mat-error *ngIf="addForm.controls['price'].hasError('required')">
+        required
+      </mat-error>
+      <mat-error *ngIf="addForm.controls['price'].hasError('min')">
+        Invalid price
+      </mat-error>
+      <mat-error *ngIf="addForm.controls['quantity'].hasError('invalidNumber')">
+        Invalid number
+      </mat-error>
+    </mat-form-field>
+    <div class="form-end">
+      <button mat-raised-button color="primary" [disabled]="addForm.invalid">
+        <span>{{ data.id ? "Update" : "Add" }}</span>
+      </button>
+      <button mat-button mat-dialog-close>Cancel</button>
+    </div>
+  </form>
+</mat-dialog-content>

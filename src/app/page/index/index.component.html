@@ -1,0 +1,46 @@
+<div class="page-breadcrumb bg-white header-board">
+  <h4 class="page-title">Basic Table</h4>
+  <div class="d-md-flex">
+    <button
+      (click)="openDialog()"
+      target="_blank"
+      class="
+        btn btn-danger
+        d-none d-md-block
+        pull-right
+        ms-3
+        hidden-xs hidden-sm
+        waves-effect waves-light
+        text-white
+      "
+    >
+      Add
+    </button>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<div class="table-responsive">
+  <table matSort (matSortChange)="sortData($event)" class="table text-nowrap">
+    <thead>
+      <tr>
+        <th mat-sort-header="name" class="border-top-0">Name</th>
+        <th mat-sort-header="type" class="border-top-0">Type</th>
+        <th mat-sort-header="quantity" class="border-top-0">Quantity</th>
+        <th mat-sort-header="price" class="border-top-0">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="prod-item" *ngFor="let shoes of shoesTempt" (click)="navigateToDetails(shoes.id)">
+        <td>{{ shoes.name }}</td>
+        <td>{{ shoes.type }}</td>
+        <td>
+          <span *ngIf="shoes.quantity != 0"> {{ shoes.quantity }}</span>
+          <span class="status" [ngClass]="checkStatus(shoes.quantity)">{{
+            checkQty(shoes.quantity)
+          }}</span>
+        </td>
+        <td>{{ shoes.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

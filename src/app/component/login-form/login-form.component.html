@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Login</h1>
+<mat-dialog-content class="mat-typography" style="width: 500px">
+  <form [formGroup]="loginForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email:</mat-label>
+      <input matInput placeholder="Ex. abc@gmail.com" formControlName="email" />
+      <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+        Email required
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+        invalid email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password:</mat-label>
+      <input
+        matInput
+        placeholder="Ex. test123"
+        formControlName="password"
+        autocomplete="off"
+        type="password"
+      />
+      <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+        Password required
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-error">
+      <mat-error *ngIf="loginForm.hasError('error')">
+        {{ loginForm.errors.error }}
+      </mat-error>
+    </div>
+
+    <button
+      class="btn hidden-xs hidden-sm waves-effect waves-light text-white my-btn"
+      [disabled]="loginForm.invalid"
+      (click)="login()"
+    >
+      Login
+    </button>
+
+
+
+    <mat-divider></mat-divider>
+
+    <div class="form-end">
+      <button
+        (click)="loginWithGoogle()"
+        type="button"
+        class="login-with-google-btn"
+      >
+        Sign in with Google
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

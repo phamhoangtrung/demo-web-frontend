@@ -1,0 +1,71 @@
+<div class="back-drop">
+  <div class="mat-typography form-card" >
+    <h2>Sign up</h2>
+    <form [formGroup]="signupForm" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email:</mat-label>
+        <input
+          matInput
+          placeholder="Ex. abc@gmail.com"
+          formControlName="email"
+        />
+        <mat-error *ngIf="signupForm.controls['email'].hasError('required')">
+          Email required
+        </mat-error>
+        <mat-error *ngIf="signupForm.controls['email'].hasError('email')">
+          invalid email
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Password:</mat-label>
+        <input
+          matInput
+          placeholder="Ex. test123"
+          formControlName="password"
+          autocomplete="off"
+          type="password"
+        />
+        <mat-error *ngIf="signupForm.controls['password'].hasError('required')">
+          Password required
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Confirm password:</mat-label>
+        <input
+          matInput
+          placeholder="Ex. test123"
+          formControlName="confirmPassword"
+          autocomplete="off"
+          type="password"
+        />
+        <mat-error *ngIf="signupForm.controls['password'].hasError('required')">
+          Password required
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-error">
+        <mat-error *ngIf="signupForm.hasError('error')">
+          {{ signupForm.errors.error }}
+        </mat-error>
+      </div>
+
+      <button
+        class="
+          btn
+          hidden-xs hidden-sm
+          waves-effect waves-light
+          text-white
+          my-btn
+        "
+        [disabled]="signupForm.invalid"
+        (click)="signup()"
+      >
+        Sign up
+      </button>
+    </form>
+  </div>
+</div>

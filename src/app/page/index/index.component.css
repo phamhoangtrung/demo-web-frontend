@@ -1,0 +1,42 @@
+.page-breadcrumb {
+  padding: 0px 0px;
+}
+
+.header-board {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status {
+  font-size: 0.8rem;
+  min-width: 50px;
+  display: inline-block;
+  border-radius: 5px;
+  color: white;
+  margin-left: 0.5rem;
+  text-align: center;
+}
+
+.status--low {
+  background-color: #faad14;
+}
+
+.status--high {
+  background-color: #52c41a;
+}
+
+.status--over {
+  background-color: #f5222d;
+}
+
+
+.prod-item:hover {
+  background-color: #2f323e;
+  color: whitesmoke;
+}
+
+.prod-item {
+  cursor: pointer;
+  background-color: white;
+  
+}
